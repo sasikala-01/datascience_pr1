@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Prediction System</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+text-align: center;
+padding: 40px;
+}
+h1 {
+color: #333;
+}
+form {
+background: white;
+border-radius: 10px;
+padding: 20px;
+display: inline-block;
+margin: 20px auto;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+width: 300px;
+}
+input[type="number"] {
+width: 90%;
+padding: 8px;
+margin: 6px 0;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+button {
+background: #4CAF50;
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+button:hover {
+background: #45a049;
+}
+.result {
+margin-top: 20px;
+font-weight: bold;
+color: #333;
+}
+</style>
+</head>
+<body>
+
+<h1>🩺 Disease Prediction System</h1>
+
+<h2>Heart Disease Prediction</h2>
+<form action="/predict_heart" method="POST">
+<input type="number" step="any" name="age" placeholder="Age" required><br>
+<input type="number" step="any" name="sex" placeholder="Sex (1=Male,0=Female)" required><br>
+<input type="number" step="any" name="cp" placeholder="Chest Pain Type" required><br>
+<input type="number" step="any" name="trestbps" placeholder="Resting BP" required><br>
+<input type="number" step="any" name="chol" placeholder="Cholesterol" required><br>
+<input type="number" step="any" name="fbs" placeholder="Fasting Blood Sugar" required><br>
+<input type="number" step="any" name="restecg" placeholder="Rest ECG" required><br>
+<input type="number" step="any" name="thalach" placeholder="Max Heart Rate" required><br>
+<input type="number" step="any" name="exang" placeholder="Exercise Angina" required><br>
+<input type="number" step="any" name="oldpeak" placeholder="Oldpeak" required><br>
+<input type="number" step="any" name="slope" placeholder="Slope" required><br>
+<input type="number" step="any" name="ca" placeholder="CA" required><br>
+<input type="number" step="any" name="thal" placeholder="Thal" required><br>
+<button type="submit">Predict Heart Disease</button>
+</form>
+
+<h2>Diabetes Prediction</h2>
+<form action="/predict_diabetes" method="POST">
+<input type="number" step="any" name="Pregnancies" placeholder="Pregnancies" required><br>
+<input type="number" step="any" name="Glucose" placeholder="Glucose" required><br>
+<input type="number" step="any" name="BloodPressure" placeholder="Blood Pressure" required><br>
+<input type="number" step="any" name="SkinThickness" placeholder="Skin Thickness" required><br>
+<input type="number" step="any" name="Insulin" placeholder="Insulin" required><br>
+<input type="number" step="any" name="BMI" placeholder="BMI" required><br>
+<input type="number" step="any" name="DiabetesPedigreeFunction" placeholder="DPF" required><br>
+<input type="number" step="any" name="Age" placeholder="Age" required><br>
+<button type="submit">Predict Diabetes</button>
+</form>
+
+{% if prediction_text %}
+<div class="result">
+<h3>{{ prediction_text }}</h3>
+</div>
+{% endif %}
+
+</body>
+</html>
